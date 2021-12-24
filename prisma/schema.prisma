@@ -10,7 +10,7 @@ generator client {
 model Ong {
   id        String     @id @default(uuid())
   name      String
-  email     String
+  email     String     @unique
   password  String
   whatsapp  String
   city      String
