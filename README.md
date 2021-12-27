@@ -10,7 +10,7 @@
 
 ## ✨ Funcionalidades
 - [x] Cadastrar ONG
-- [] Autenticação da ONG
+- [x] Autenticação da ONG
 - [] Perfil de ONG
 - [x] Listar ONGs
 - [] Cadastrar um novo Caso
