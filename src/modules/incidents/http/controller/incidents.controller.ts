@@ -6,17 +6,24 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateIncidentDto } from '../../dtos/create-incident.dto';
 import { UpdateIncidentDto } from '../../dtos/update-incident.dto';
+import { AccessTokenAuthGuard } from '../../../auth/helpers/guards/access-token-guard.guard';
+import { GetCurrentOngById } from '../../../auth/helpers/get-current-ong.decorator';
 
 @Controller('incidents')
 export class IncidentsController {
   // constructor(private readonly incidentsService: IncidentsService) {}
 
+  @UseGuards(AccessTokenAuthGuard)
   @Post()
-  create(@Body() createIncidentDto: CreateIncidentDto) {
-    return 'this.incidentsService.create(createIncidentDto)';
+  create(
+    @GetCurrentOngById() ong_id: string,
+    @Body() createIncidentDto: CreateIncidentDto,
+  ) {
+    return `${ong_id} && ${createIncidentDto}`;
   }
 
   @Get()
