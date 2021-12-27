@@ -4,6 +4,7 @@ import { AuthController } from './http/controller/auth.controller';
 import { AuthenticateOngUseCase } from './useCases/authenticate-ong/authenticate-ong-use-case';
 import { OngsModule } from '@modules/ongs/ongs.module';
 import { AccessTokenStrategy } from './strategies/access-token.strategy';
+import { ProfileOngUseCase } from './useCases/profile-ong/profile-ong-use-case';
 
 @Module({
   imports: [
@@ -13,6 +14,6 @@ import { AccessTokenStrategy } from './strategies/access-token.strategy';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthenticateOngUseCase, AccessTokenStrategy],
+  providers: [AuthenticateOngUseCase, ProfileOngUseCase, AccessTokenStrategy],
 })
 export class AuthModule {}
