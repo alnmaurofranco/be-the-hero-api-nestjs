@@ -14,5 +14,11 @@ import { GetAllOngUseCase } from './useCases/get-all-ong/get-all-ong-use-case';
     CreateOngUseCase,
     GetAllOngUseCase,
   ],
+  exports: [
+    {
+      provide: 'OngsRepository',
+      useClass: OngsPrismaRepository,
+    },
+  ],
 })
 export class OngsModule {}

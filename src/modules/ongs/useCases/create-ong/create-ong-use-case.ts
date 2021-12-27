@@ -1,10 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { hash } from 'bcryptjs';
 import { IOngsRepository } from '@modules/ongs/repositories/ongs-repository.interface';
 import { CreateOngDto } from '../../dtos/create-ong.dto';
-import { hash } from 'bcryptjs';
 import { CreateOngException } from './create-ong.exception';
+import { Ong } from '../../domain/ong';
 
 type CreateOngUseCaseResponse = void;
+
 type CreateOngUseCaseRequest = CreateOngDto;
 
 @Injectable()
@@ -30,7 +32,7 @@ export class CreateOngUseCase {
 
     const hashPassword = await hash(password, 9);
 
-    await this.ongsRepository.create({
+    const ong = Ong.create({
       name,
       email,
       password: hashPassword,
@@ -38,5 +40,7 @@ export class CreateOngUseCase {
       uf,
       whatsapp,
     });
+
+    await this.ongsRepository.create(ong);
   }
 }

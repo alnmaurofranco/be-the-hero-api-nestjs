@@ -63,9 +63,9 @@ export class OngsPrismaRepository implements IOngsRepository {
   }
 
   async findByEmail(email: string): Promise<Ong> {
-    const ongExists = await this.repository.findUnique({
+    const ongExists = await this.repository.findFirst({
       where: {
-        email,
+        email: email.toLowerCase(),
       },
     });
 
@@ -75,10 +75,8 @@ export class OngsPrismaRepository implements IOngsRepository {
   }
 
   async create(createOngDto: CreateOngDto): Promise<void> {
-    const data = Ong.create(createOngDto);
-
     await this.repository.create({
-      data,
+      data: createOngDto,
     });
   }
 }
