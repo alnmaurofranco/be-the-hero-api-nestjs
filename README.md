@@ -9,15 +9,15 @@
 ## 🚀 Tecnologias
 
 ## ✨ Funcionalidades
-- [x] Cadastrar ONG
-- [x] Autenticação da ONG
-- [] Perfil de ONG
-- [x] Listar ONGs
-- [] Cadastrar um novo Caso
-- [] Listar todos os Casos
-- [] Obter informação de um Caso
-- [] Atualizar um Caso
-- [] Excluir um Caso
+- [x] Cadastrar ONG [public]
+- [x] Autenticação da ONG [public]
+- [x] Perfil de ONG [public]
+- [x] Listar ONGs [admin]
+- [x] Cadastrar um novo Caso [public]
+- [] Listar todos os Casos [public]
+- [] Obter informação de um Caso [public]
+- [] Atualizar um Caso [admin]
+- [] Excluir um Caso [admin]
 
 ## 🎓 Desafio
 - Autenticação com Google/Facebook

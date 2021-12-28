@@ -28,12 +28,7 @@ export class IncidentsPrismaRepository implements IIncidentsRepository {
     const data = createIncidentDto;
 
     const incident = await this.repository.create({
-      data: {
-        title: data.title,
-        description: data.description,
-        value: Number(data.value),
-        ongId: '1',
-      },
+      data,
     });
 
     return incident;
