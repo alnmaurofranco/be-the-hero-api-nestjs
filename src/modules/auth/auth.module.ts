@@ -1,10 +1,9 @@
+import { OngsModule } from '@modules/ongs/ongs.module';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './http/controller/auth.controller';
-import { AuthenticateOngUseCase } from './useCases/authenticate-ong/authenticate-ong-use-case';
-import { OngsModule } from '@modules/ongs/ongs.module';
 import { AccessTokenStrategy } from './strategies/access-token.strategy';
-import { ProfileOngUseCase } from './useCases/profile-ong/profile-ong-use-case';
+import { AuthenticateOngUseCase } from './useCases/authenticate-ong/authenticate-ong-use-case';
 
 @Module({
   imports: [
@@ -14,6 +13,6 @@ import { ProfileOngUseCase } from './useCases/profile-ong/profile-ong-use-case';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthenticateOngUseCase, ProfileOngUseCase, AccessTokenStrategy],
+  providers: [AuthenticateOngUseCase, AccessTokenStrategy],
 })
 export class AuthModule {}

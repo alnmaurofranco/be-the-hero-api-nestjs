@@ -3,6 +3,7 @@ import { PrismaService } from '@infra/prisma/prisma.service';
 import { IOngsRepository, OngOmitPassword } from '../ongs-repository.interface';
 import { Ong } from '@modules/ongs/domain/ong';
 import { CreateOngDto } from '@modules/ongs/dtos/create-ong.dto';
+import { OngWithDetails } from '@modules/ongs/dtos/ong-with-details.dto';
 
 @Injectable()
 export class OngsPrismaRepository implements IOngsRepository {
@@ -54,6 +55,25 @@ export class OngsPrismaRepository implements IOngsRepository {
         whatsapp: true,
         createdAt: true,
         updatedAt: true,
+      },
+    });
+
+    if (!ongExists) return null;
+
+    return ongExists;
+  }
+
+  async findByIdWithDetails(id: string): Promise<OngWithDetails> {
+    const ongExists = await this.repository.findUnique({
+      where: {
+        id,
+      },
+      include: {
+        incidents: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+        },
       },
     });
 

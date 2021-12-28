@@ -1,3 +1,5 @@
+import { Incident } from '../../incidents/domain/incident';
+
 export class Ong {
   id?: string;
   name: string;
@@ -6,9 +8,9 @@ export class Ong {
   whatsapp: string;
   city: string;
   uf: string;
+  incident?: Incident[];
   createdAt?: Date;
   updatedAt?: Date;
-  incidents?: [];
 
   private constructor({ name, email, password, whatsapp, city, uf }: Ong) {
     return Object.assign(this, {
