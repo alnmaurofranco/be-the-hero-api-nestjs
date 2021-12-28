@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { IIncidentsRepository } from '@modules/incidents/repositories/incidents-repository.interface';
 import { CreateIncidentDto } from '../../dtos/create-incident.dto';
-import { Incident } from '../../domain/incident';
 
 type CreateIncidentUseCaseRequest = CreateIncidentDto;
 

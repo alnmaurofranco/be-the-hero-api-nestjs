@@ -1,20 +1,31 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
+  Get,
+  HttpCode,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
 } from '@nestjs/common';
+import { GetCurrentOngById } from '../../../auth/helpers/get-current-ong.decorator';
+import { Public } from '../../../auth/helpers/public.decorator';
 import { CreateIncidentDto } from '../../dtos/create-incident.dto';
 import { UpdateIncidentDto } from '../../dtos/update-incident.dto';
-import { GetCurrentOngById } from '../../../auth/helpers/get-current-ong.decorator';
-import { CreateIncidentUseCase } from '@modules/incidents/useCases/create-incident/create-incident-use-case';
+import { CreateIncidentUseCase } from '../../useCases/create-incident/create-incident-use-case';
+import { DeleteIncidentUseCase } from '../../useCases/delete-incident/delete-incident-use-case';
+import { GetAllIncidentUseCase } from '../../useCases/get-all-incident/get-all-incident-use-case';
+import { UpdateIncidentUseCase } from '../../useCases/update-incident/update-incident-use-case';
 
 @Controller('incidents')
 export class IncidentsController {
-  constructor(private readonly createIncident: CreateIncidentUseCase) {}
+  constructor(
+    private readonly createIncident: CreateIncidentUseCase,
+    private readonly getAllIncident: GetAllIncidentUseCase,
+    private readonly updateIncident: UpdateIncidentUseCase,
+    private readonly deleteIncident: DeleteIncidentUseCase,
+  ) {}
 
   // @UseGuards(AccessTokenAuthGuard)
   @Post()
@@ -32,9 +43,10 @@ export class IncidentsController {
     return this.createIncident.execute(createIncidentDto);
   }
 
+  @Public()
   @Get()
-  findAll() {
-    return 'this.incidentsService.findAll()';
+  findAllByOngId() {
+    return this.getAllIncident.execute();
   }
 
   @Get(':id')
@@ -51,7 +63,14 @@ export class IncidentsController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return 'this.incidentsService.remove(+id)';
+  @HttpCode(204)
+  remove(@Param('id', new ParseUUIDPipe()) incidentId: string) {
+    return this.deleteIncident.execute({ incidentId });
   }
+
+  // @Delete(':id')
+  // @HttpCode(204)
+  // remove(@Param('id', new ParseUUIDPipe()) incidentId: string) {
+  //   return this.deleteIncident.execute({ incidentId });
+  // }
 }

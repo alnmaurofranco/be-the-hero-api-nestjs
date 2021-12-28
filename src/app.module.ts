@@ -15,9 +15,9 @@ import { AccessTokenAuthGuard } from './modules/auth/helpers/guards/access-token
       load: [AuthConfiguration], // carregar um arquivo com configurações
     }),
     PrismaModule,
+    AuthModule,
     OngsModule,
     IncidentsModule,
-    AuthModule,
   ],
   controllers: [],
   providers: [

@@ -3,6 +3,7 @@ import { Incident } from '@modules/incidents/domain/incident';
 import { CreateIncidentDto } from '@modules/incidents/dtos/create-incident.dto';
 import { IIncidentsRepository } from '@modules/incidents/repositories/incidents-repository.interface';
 import { PrismaService } from '@infra/prisma/prisma.service';
+import { IncidentWithDetails } from '@modules/incidents/dtos/incident-with-details.dto';
 
 @Injectable()
 export class IncidentsPrismaRepository implements IIncidentsRepository {
@@ -12,6 +13,16 @@ export class IncidentsPrismaRepository implements IIncidentsRepository {
 
   async findAll(): Promise<Incident[]> {
     return await this.repository.findMany();
+  }
+
+  async findAllWithOng(): Promise<IncidentWithDetails[]> {
+    const incidents = await this.repository.findMany({
+      include: {
+        ong: true,
+      },
+    });
+
+    return incidents;
   }
 
   async findById(id: string): Promise<Incident> {
