@@ -15,8 +15,8 @@
 - [x] Listar ONGs [admin]
 - [x] Cadastrar um novo Caso [public]
 - [x] Listar todos os Casos [public]
-- [] Obter informação de um Caso [public]
-- [] Atualizar um Caso [admin]
+- [x] Obter informação de um Caso [public]
+- [x] Atualizar um Caso [admin]
 - [x] Excluir um Caso [admin]
 
 ## 🎓 Desafio
