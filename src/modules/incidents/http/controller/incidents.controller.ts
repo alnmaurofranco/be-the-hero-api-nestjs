@@ -17,12 +17,14 @@ import { CreateIncidentUseCase } from '../../useCases/create-incident/create-inc
 import { DeleteIncidentUseCase } from '../../useCases/delete-incident/delete-incident-use-case';
 import { GetAllIncidentUseCase } from '../../useCases/get-all-incident/get-all-incident-use-case';
 import { UpdateIncidentUseCase } from '../../useCases/update-incident/update-incident-use-case';
+import { GetIncidentUseCase } from '../../useCases/get-incident/get-incident-use-case';
 
 @Controller('incidents')
 export class IncidentsController {
   constructor(
     private readonly createIncident: CreateIncidentUseCase,
     private readonly getAllIncident: GetAllIncidentUseCase,
+    private readonly getIncident: GetIncidentUseCase,
     private readonly updateIncident: UpdateIncidentUseCase,
     private readonly deleteIncident: DeleteIncidentUseCase,
   ) {}
@@ -49,14 +51,15 @@ export class IncidentsController {
     return this.getAllIncident.execute();
   }
 
+  @Public()
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return 'this.incidentsService.findOne(+id)';
+  findOne(@Param('id', new ParseUUIDPipe()) incidentId: string) {
+    return this.getIncident.execute({ incidentId });
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: string,
+    @Param('id') incidentId: string,
     @Body() updateIncidentDto: UpdateIncidentDto,
   ) {
     return 'this.incidentsService.update(+id, updateIncidentDto)';

@@ -5,6 +5,7 @@ import { CreateIncidentUseCase } from '@modules/incidents/useCases/create-incide
 import { GetAllIncidentUseCase } from './useCases/get-all-incident/get-all-incident-use-case';
 import { UpdateIncidentUseCase } from './useCases/update-incident/update-incident-use-case';
 import { DeleteIncidentUseCase } from './useCases/delete-incident/delete-incident-use-case';
+import { GetIncidentUseCase } from './useCases/get-incident/get-incident-use-case';
 
 @Module({
   imports: [],
@@ -16,6 +17,7 @@ import { DeleteIncidentUseCase } from './useCases/delete-incident/delete-inciden
     },
     CreateIncidentUseCase,
     GetAllIncidentUseCase,
+    GetIncidentUseCase,
     UpdateIncidentUseCase,
     DeleteIncidentUseCase,
   ],
