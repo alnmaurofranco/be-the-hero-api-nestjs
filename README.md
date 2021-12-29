@@ -14,10 +14,10 @@
 - [x] Perfil de ONG [public]
 - [x] Listar ONGs [admin]
 - [x] Cadastrar um novo Caso [public]
-- [] Listar todos os Casos [public]
+- [x] Listar todos os Casos [public]
 - [] Obter informação de um Caso [public]
 - [] Atualizar um Caso [admin]
-- [] Excluir um Caso [admin]
+- [x] Excluir um Caso [admin]
 
 ## 🎓 Desafio
 - Autenticação com Google/Facebook

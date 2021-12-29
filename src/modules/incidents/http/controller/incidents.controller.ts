@@ -64,8 +64,11 @@ export class IncidentsController {
 
   @Delete(':id')
   @HttpCode(204)
-  remove(@Param('id', new ParseUUIDPipe()) incidentId: string) {
-    return this.deleteIncident.execute({ incidentId });
+  remove(
+    @Param('id', new ParseUUIDPipe()) incidentId: string,
+    @GetCurrentOngById() ongId: string,
+  ) {
+    return this.deleteIncident.execute({ incidentId, ongId });
   }
 
   // @Delete(':id')

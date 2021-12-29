@@ -7,4 +7,13 @@ export namespace DeleteIncidentException {
       super('Incident does not exists', HttpStatus.NOT_FOUND);
     }
   }
+
+  export class OngNotAllowedForbiddenException extends HttpException {
+    constructor() {
+      super(
+        'You do not have permission to delete this Incident',
+        HttpStatus.FORBIDDEN,
+      );
+    }
+  }
 }
