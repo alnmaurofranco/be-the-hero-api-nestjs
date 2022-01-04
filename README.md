@@ -7,17 +7,30 @@
 ## 💫 Sobre o projeto
 
 ## 🚀 Tecnologias
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+* [Node.js](https://nodejs.org/en/) - A JavaScript runtime built on Chrome's V8 JavaScript engine.
+* [NestJS](https://docs.nestjs.com/) - Is a framework for building efficient, scalable Node.js web applications.
+* [Prisma](https://prisma.io/) - Next-generation Node.js and TypeScript ORM
+* [PostgreSQL](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database
+* [Docker](https://www.docker.com/) - Developers Love Docker. Businesses Trust It.
+<p>
+<img src="https://cdn.svgporn.com/logos/nodejs-icon.svg" alt="nodejs" width="30" height="30" style="margin-left: 5px;"/>
+<img src="https://cdn.svgporn.com/logos/nestjs.svg" alt="nestjs" width="30" height="30" style="margin-left: 5px;"/>
+<img src="https://cdn.svgporn.com/logos/typescript-icon.svg" alt="typescript" width="30" height="30" style="margin-left: 5px;"/>
+<img src="https://cdn.svgporn.com/logos/prisma.svg" alt="prisma" width="30" heigth="30" style="margin-right: 5px;" />
+<img src="https://cdn.svgporn.com/logos/postgresql.svg" alt="postgresql" width="30" height="30" style="margin-left: 5px;"/>
+<img src="https://cdn.svgporn.com/logos/docker-icon.svg" alt="docker" width="30" heigth="30" style="margin-right: 5px;" />
 
 ## ✨ Funcionalidades
-- [x] Cadastrar ONG [public]
-- [x] Autenticação da ONG [public]
-- [x] Perfil de ONG [public]
-- [x] Listar ONGs [admin]
-- [x] Cadastrar um novo Caso [public]
-- [x] Listar todos os Casos [public]
-- [x] Obter informação de um Caso [public]
-- [x] Atualizar um Caso [admin]
-- [x] Excluir um Caso [admin]
+- Cadastrar ONG [public] ✅
+- Autenticação da ONG [public] ✅
+- Perfil de ONG [public] ✅
+- Listar ONGs [admin] ✅
+- Cadastrar um novo Caso [public] ✅
+- Listar todos os Casos [public] ✅
+- Obter informação de um Caso [public] ✅
+- Atualizar um Caso [admin] ✅
+- Excluir um Caso [admin] ✅
 
 ## 🎓 Desafio
 - Autenticação com Google/Facebook
