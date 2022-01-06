@@ -8,6 +8,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { GetCurrentOngById } from '../../../auth/helpers/get-current-ong.decorator';
 import { Public } from '../../../auth/helpers/public.decorator';
@@ -47,8 +48,10 @@ export class IncidentsController {
 
   @Public()
   @Get()
-  findAllByOngId() {
-    return this.getAllIncident.execute();
+  findAllByOngId(@Query('page') pageQuery = 1) {
+    return this.getAllIncident.execute({
+      pagination: pageQuery,
+    });
   }
 
   @Public()

@@ -4,6 +4,10 @@ import { Inject, Injectable } from '@nestjs/common';
 import { GetAllIncidentException } from './get-all-incident-exception';
 import { IncidentWithDetailsMapper } from '../../mappers/incident-with-details-mapper';
 
+type GetAllIncidentUseCaseRequest = {
+  pagination: number;
+};
+
 type GetAllIncidentUseCaseResponse = IncidentWithDetails[];
 
 @Injectable()
@@ -13,9 +17,16 @@ export class GetAllIncidentUseCase {
     private readonly incidentsRepository: IIncidentsRepository,
   ) {}
 
-  async execute(): Promise<GetAllIncidentUseCaseResponse> {
+  async execute({
+    pagination,
+  }: GetAllIncidentUseCaseRequest): Promise<GetAllIncidentUseCaseResponse> {
+    const limit = 5;
+
     const listAllIncidentsExists =
-      await this.incidentsRepository.findAllWithOng();
+      await this.incidentsRepository.findAllWithOng(
+        (pagination - 1) * limit,
+        limit,
+      );
 
     if (listAllIncidentsExists.length <= 0) {
       throw new GetAllIncidentException.EmptyListIncidentError();

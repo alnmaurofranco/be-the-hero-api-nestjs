@@ -11,15 +11,24 @@ export class IncidentsPrismaRepository implements IIncidentsRepository {
 
   private repository = this.prisma.incident;
 
+  async totalIncidents(): Promise<number> {
+    return await this.repository.count();
+  }
+
   async findAll(): Promise<Incident[]> {
     return await this.repository.findMany();
   }
 
-  async findAllWithOng(): Promise<IncidentWithDetails[]> {
+  async findAllWithOng(
+    offset: number,
+    limit: number,
+  ): Promise<IncidentWithDetails[]> {
     const incidents = await this.repository.findMany({
       include: {
         ong: true,
       },
+      take: limit,
+      skip: offset,
     });
 
     return incidents;
