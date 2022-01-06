@@ -4,6 +4,9 @@
 
 <p align="center">API feita para estudo/pratica do framework NestJS e Prisma ORM</p>
 
+## ♻ API Be The Hero - Old
+[LINK DA API ANTIGA](https://github.com/alnmaurofranco/WeekOmniStack11-be-the-hero/blob/master/backend)
+
 ## 🚀 Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 * [Node.js](https://nodejs.org/en/) - A JavaScript runtime built on Chrome's V8 JavaScript engine.
@@ -30,9 +33,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Atualizar um Caso [admin] ✅
 - Excluir um Caso [admin] ✅
 
-## 🎓 Desafio
-- Middleware Administrador/
+## 🎓 Desafio / Novas funcionalidades
+- Autenticação com JWT ✅
 - Autenticação com Google/Facebook
-- Casos Resolvidos
+  - Google ✅
+  - Facebook ⚙
+- Permissão de Administrador ⚙
+- Casos Resolvidos/Fechados ⚙
 
 ---
