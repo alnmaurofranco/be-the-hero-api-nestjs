@@ -1,13 +1,13 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { IOngsRepository } from '@modules/ongs/repositories/ongs-repository.interface';
 import { AuthenticateOngDto } from '../../dtos/authenticate-ong.dto';
-import { Inject, Injectable } from '@nestjs/common';
 import { AuthenticateOngException } from './authenticate-ong.exception';
 import { compare } from 'bcryptjs';
-import { JwtService } from '@nestjs/jwt';
 import { AuthConfiguration } from '@config/auth.config';
 
 type AuthenticateOngUseCaseResponse = {
-  accessToken;
+  accessToken: string;
 };
 
 type AuthenticateOngUseCaseRequest = AuthenticateOngDto;

@@ -3,6 +3,8 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './http/controller/auth.controller';
 import { AccessTokenStrategy } from './strategies/access-token.strategy';
+import { GoogleStrategy } from './strategies/google.strategy';
+import { AuthenticateGoogleUseCase } from './useCases/authenticate-google/authenticate-google-use-case';
 import { AuthenticateOngUseCase } from './useCases/authenticate-ong/authenticate-ong-use-case';
 
 @Module({
@@ -13,6 +15,11 @@ import { AuthenticateOngUseCase } from './useCases/authenticate-ong/authenticate
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthenticateOngUseCase, AccessTokenStrategy],
+  providers: [
+    AuthenticateOngUseCase,
+    AuthenticateGoogleUseCase,
+    AccessTokenStrategy,
+    GoogleStrategy,
+  ],
 })
 export class AuthModule {}

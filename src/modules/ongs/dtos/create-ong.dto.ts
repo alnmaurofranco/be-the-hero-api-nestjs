@@ -5,4 +5,6 @@ export class CreateOngDto {
   whatsapp: string;
   city: string;
   uf: string;
+  avatar?: string;
+  hasProvider?: 'FACEBOOK' | 'GOOGLE';
 }
