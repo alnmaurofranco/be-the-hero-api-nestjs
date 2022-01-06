@@ -8,18 +8,26 @@ generator client {
 }
 
 model Ong {
-  id        String     @id @default(uuid())
-  name      String
-  email     String     @unique
-  password  String
-  whatsapp  String
-  city      String
-  uf        String     @db.VarChar(2)
-  incidents Incident[]
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  id          String       @id @default(uuid())
+  name        String
+  email       String       @unique
+  password    String
+  whatsapp    String
+  city        String
+  uf          String       @db.VarChar(2)
+  avatar      String?
+  isAdmin     Boolean      @default(false)
+  hasProvider OngProvider?
+  incidents   Incident[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 
   @@map("ongs")
+}
+
+enum OngProvider {
+  FACEBOOK
+  GOOGLE
 }
 
 model Incident {

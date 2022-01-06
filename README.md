@@ -4,8 +4,6 @@
 
 <p align="center">API feita para estudo/pratica do framework NestJS e Prisma ORM</p>
 
-## 💫 Sobre o projeto
-
 ## 🚀 Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 * [Node.js](https://nodejs.org/en/) - A JavaScript runtime built on Chrome's V8 JavaScript engine.
@@ -33,6 +31,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Excluir um Caso [admin] ✅
 
 ## 🎓 Desafio
+- Middleware Administrador/
 - Autenticação com Google/Facebook
 - Casos Resolvidos
 
