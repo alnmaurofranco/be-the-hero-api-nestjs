@@ -8,6 +8,9 @@ export class Ong {
   whatsapp: string;
   city: string;
   uf: string;
+  avatar?: string;
+  hasProvider?: 'FACEBOOK' | 'GOOGLE';
+  isAdmin?: boolean;
   incident?: Incident[];
   createdAt?: Date;
   updatedAt?: Date;
