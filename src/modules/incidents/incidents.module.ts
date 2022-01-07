@@ -6,9 +6,10 @@ import { GetAllIncidentUseCase } from './useCases/get-all-incident/get-all-incid
 import { UpdateIncidentUseCase } from './useCases/update-incident/update-incident-use-case';
 import { DeleteIncidentUseCase } from './useCases/delete-incident/delete-incident-use-case';
 import { GetIncidentUseCase } from './useCases/get-incident/get-incident-use-case';
+import { OngsModule } from '../ongs/ongs.module';
 
 @Module({
-  imports: [],
+  imports: [OngsModule],
   controllers: [IncidentsController],
   providers: [
     {

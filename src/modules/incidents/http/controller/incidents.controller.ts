@@ -1,3 +1,4 @@
+import { Role } from '@modules/auth/helpers/roles.decorator';
 import {
   Body,
   Controller,
@@ -73,6 +74,7 @@ export class IncidentsController {
     });
   }
 
+  @Role('admin')
   @Delete(':id')
   @HttpCode(204)
   remove(
@@ -81,10 +83,4 @@ export class IncidentsController {
   ) {
     return this.deleteIncident.execute({ incidentId, ongId });
   }
-
-  // @Delete(':id')
-  // @HttpCode(204)
-  // remove(@Param('id', new ParseUUIDPipe()) incidentId: string) {
-  //   return this.deleteIncident.execute({ incidentId });
-  // }
 }

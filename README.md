@@ -37,8 +37,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Autenticação com JWT ✅
 - Autenticação com Google/Facebook
   - Google ✅
-  - Facebook ⚙
+  - Facebook ✅
 - Permissão de Administrador ⚙
 - Casos Resolvidos/Fechados ⚙
 
+## 🔑
+https://developers.facebook.com/
+https://console.developers.google.com/
 ---
