@@ -6,7 +6,6 @@ type GoogleUserData = {
   name: string;
   email: string;
   avatar: string;
-  provider: 'FACEBOOK' | 'GOOGLE';
 };
 
 @Injectable()
@@ -32,7 +31,6 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       name: displayName,
       email: emails[0].value,
       avatar: photos[0].value,
-      provider: 'GOOGLE',
     };
 
     done(null, googleUser);

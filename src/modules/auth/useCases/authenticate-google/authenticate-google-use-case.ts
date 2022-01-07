@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, BadRequestException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { AuthenticateOngGoogle } from '../../dtos/authenticate-ong-google.dto';
 import { IOngsRepository } from '@modules/ongs/repositories/ongs-repository.interface';
@@ -23,11 +23,6 @@ export class AuthenticateGoogleUseCase {
     email,
     avatar,
   }: AuthenticateGoogleUseCaseRequest): Promise<AuthenticateGoogleUseCaseResponse> {
-    console.log({
-      name,
-      email,
-      avatar,
-    });
     const empty = '';
     const ongAlreadyExists = await this.ongsRepository.findByEmail(email);
 
@@ -48,15 +43,19 @@ export class AuthenticateGoogleUseCase {
       return { accessToken };
     }
 
-    await this.ongsRepository.create({
-      name,
-      email,
-      city: empty,
-      uf: empty,
-      whatsapp: empty,
-      password: empty,
-      avatar,
-      hasProvider: 'GOOGLE',
-    });
+    try {
+      await this.ongsRepository.create({
+        name,
+        email,
+        city: empty,
+        uf: empty,
+        whatsapp: empty,
+        password: empty,
+        avatar,
+        hasProvider: 'GOOGLE',
+      });
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
   }
 }
