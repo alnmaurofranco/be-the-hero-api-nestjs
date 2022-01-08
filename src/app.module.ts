@@ -11,7 +11,7 @@ import { AccessTokenAuthGuard } from './modules/auth/helpers/guards/access-token
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env.local',
+      envFilePath: '.env',
       load: [AuthConfiguration], // carregar um arquivo com configurações
     }),
     PrismaModule,
