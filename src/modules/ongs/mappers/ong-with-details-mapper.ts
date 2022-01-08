@@ -21,6 +21,7 @@ export class OngWithDetailsMapper {
           title: incident.title,
           description: incident.description,
           value: incident.value,
+          isFinished: incident.isFinished,
           createdAt: incident.createdAt,
           updatedAt: incident.updatedAt,
         };

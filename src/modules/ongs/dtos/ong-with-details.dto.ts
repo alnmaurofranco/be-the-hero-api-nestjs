@@ -14,6 +14,7 @@ export interface OngWithDetails {
     title: string;
     description: string;
     value: number | string | Prisma.Decimal;
+    isFinished: boolean;
     createdAt: Date;
     updatedAt: Date;
   }>;
