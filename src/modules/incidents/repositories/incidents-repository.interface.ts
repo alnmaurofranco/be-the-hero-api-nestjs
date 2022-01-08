@@ -5,6 +5,7 @@ import { IncidentWithDetails } from '../dtos/incident-with-details.dto';
 export interface IIncidentsRepository {
   totalIncidents(): Promise<number>;
   findAll(): Promise<Incident[]>;
+  findAllByFinished(): Promise<Incident[]>;
   findAllWithOng(offset: number, limit: number): Promise<IncidentWithDetails[]>;
   findById(id: string): Promise<Incident>;
   create(createIncidentDto: CreateIncidentDto): Promise<Incident>;

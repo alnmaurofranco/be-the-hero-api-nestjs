@@ -13,6 +13,7 @@ export interface IncidentWithDetails {
     city: string;
     uf: string;
   };
+  isFinished: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

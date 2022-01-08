@@ -21,6 +21,7 @@ export class IncidentWithDetailsMapper {
         city: incident.ong.city,
         uf: incident.ong.uf,
       },
+      isFinished: incident.isFinished,
       createdAt: incident.createdAt,
       updatedAt: incident.updatedAt,
     }));

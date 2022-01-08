@@ -19,6 +19,19 @@ export class IncidentsPrismaRepository implements IIncidentsRepository {
     return await this.repository.findMany();
   }
 
+  async findAllByFinished(): Promise<Incident[]> {
+    return await this.repository.findMany({
+      where: {
+        isFinished: {
+          equals: true,
+        },
+      },
+      orderBy: {
+        updatedAt: 'desc',
+      },
+    });
+  }
+
   async findAllWithOng(
     offset: number,
     limit: number,

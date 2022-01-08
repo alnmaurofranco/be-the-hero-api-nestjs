@@ -20,8 +20,8 @@ export class DeleteIncidentUseCase {
   ) {}
 
   async execute({
-    incidentId,
     ongId,
+    incidentId,
   }: DeleteIncidentUseCaseRequest): Promise<DeleteIncidentUseCaseResponse> {
     const ongExists = await this.ongsRepository.findById(ongId);
     const incidentExists = await this.incidentsRepository.findById(incidentId);

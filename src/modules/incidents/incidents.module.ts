@@ -7,6 +7,8 @@ import { UpdateIncidentUseCase } from './useCases/update-incident/update-inciden
 import { DeleteIncidentUseCase } from './useCases/delete-incident/delete-incident-use-case';
 import { GetIncidentUseCase } from './useCases/get-incident/get-incident-use-case';
 import { OngsModule } from '../ongs/ongs.module';
+import { FinishedIncidentUseCase } from './useCases/finished-incident/finished-incident-use-case';
+import { GetAllFinishedIncidentUseCase } from './useCases/get-all-finished-incident/get-all-finished-incident-use-case';
 
 @Module({
   imports: [OngsModule],
@@ -18,9 +20,11 @@ import { OngsModule } from '../ongs/ongs.module';
     },
     CreateIncidentUseCase,
     GetAllIncidentUseCase,
+    GetAllFinishedIncidentUseCase,
     GetIncidentUseCase,
     UpdateIncidentUseCase,
     DeleteIncidentUseCase,
+    FinishedIncidentUseCase,
   ],
 })
 export class IncidentsModule {}

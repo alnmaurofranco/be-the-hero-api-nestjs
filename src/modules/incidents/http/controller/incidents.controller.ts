@@ -1,4 +1,3 @@
-import { Role } from '@modules/auth/helpers/roles.decorator';
 import {
   Body,
   Controller,
@@ -7,6 +6,7 @@ import {
   HttpCode,
   Param,
   ParseUUIDPipe,
+  Patch,
   Post,
   Put,
   Query,
@@ -20,15 +20,19 @@ import { DeleteIncidentUseCase } from '../../useCases/delete-incident/delete-inc
 import { GetAllIncidentUseCase } from '../../useCases/get-all-incident/get-all-incident-use-case';
 import { GetIncidentUseCase } from '../../useCases/get-incident/get-incident-use-case';
 import { UpdateIncidentUseCase } from '../../useCases/update-incident/update-incident-use-case';
+import { FinishedIncidentUseCase } from '../../useCases/finished-incident/finished-incident-use-case';
+import { GetAllFinishedIncidentUseCase } from '../../useCases/get-all-finished-incident/get-all-finished-incident-use-case';
 
 @Controller('incidents')
 export class IncidentsController {
   constructor(
     private readonly createIncident: CreateIncidentUseCase,
     private readonly getAllIncident: GetAllIncidentUseCase,
+    private readonly getAllFinishedIncident: GetAllFinishedIncidentUseCase,
     private readonly getIncident: GetIncidentUseCase,
     private readonly updateIncident: UpdateIncidentUseCase,
     private readonly deleteIncident: DeleteIncidentUseCase,
+    private readonly finishedIncident: FinishedIncidentUseCase,
   ) {}
 
   // @UseGuards(AccessTokenAuthGuard)
@@ -49,10 +53,16 @@ export class IncidentsController {
 
   @Public()
   @Get()
-  findAllByOngId(@Query('page') pageQuery = 1) {
+  listAllIncidents(@Query('page') pageQuery = 1) {
     return this.getAllIncident.execute({
       pagination: pageQuery,
     });
+  }
+
+  @Public()
+  @Get('/finished')
+  listAllFinishedIncidents() {
+    return this.getAllFinishedIncident.execute();
   }
 
   @Public()
@@ -79,9 +89,18 @@ export class IncidentsController {
   @Delete(':id')
   @HttpCode(204)
   remove(
-    @Param('id', new ParseUUIDPipe()) incidentId: string,
     @GetCurrentOngById() ongId: string,
+    @Param('id', new ParseUUIDPipe()) incidentId: string,
   ) {
-    return this.deleteIncident.execute({ incidentId, ongId });
+    return this.deleteIncident.execute({ ongId, incidentId });
+  }
+
+  @Patch(':id/finished')
+  @HttpCode(200)
+  incidentDone(
+    @GetCurrentOngById() ongId: string,
+    @Param('id', new ParseUUIDPipe()) incidentId: string,
+  ) {
+    return this.finishedIncident.execute({ ongId, incidentId });
   }
 }
