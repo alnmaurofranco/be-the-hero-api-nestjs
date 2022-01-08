@@ -43,7 +43,27 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Permissão de Administrador ✅
 - Casos Resolvidos/Finalizados ✅
 
-## 🎉 Como executar
+## 👨🏼‍💻 Como executar
+
+- Clone o repositório
+```bash
+git clone https://github.com/alnmaurofranco/be-the-hero-api-nestjs
+```
+- Acesse a pasta do projeto
+```bash
+cd be-the-hero-api-nestjs
+```
+- Instale as dependências
+```bash
+# use yarn ou npm para instalar as dependências
+yarn install
+```
+- Iniciando a API
+```bash
+yarn start:dev
+```
+
+E pronto API já estára rodando e pode ser acessado em [`localhost:3333/api`](http://localhost:3333/api)
 
 ## 🔑 Como integrar
 https://developers.facebook.com/
