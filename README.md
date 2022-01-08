@@ -43,9 +43,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Permissão de Administrador ✅
 - Casos Resolvidos/Finalizados ✅
 
-## 👨🏼‍💻 Como executar
+## 💻 Como executar
+Para rodar este projeto é necessário ter [Node.js](https://nodejs.org/) instalado em sua maquina. Caso não tenha ainda basta acessar o site do [Node.js](https://nodejs.org/) e instalar para continuar.
 
-- Clone o repositório
+- Clone este repositório com comando
 ```bash
 git clone https://github.com/alnmaurofranco/be-the-hero-api-nestjs
 ```
@@ -53,19 +54,40 @@ git clone https://github.com/alnmaurofranco/be-the-hero-api-nestjs
 ```bash
 cd be-the-hero-api-nestjs
 ```
-- Instale as dependências
+### **🔥 Sem Docker**
+- Instale as dependências do projeto com (yarn ou npm) nesse exemplo estou usando **yarn**
 ```bash
-# use yarn ou npm para instalar as dependências
 yarn install
 ```
-- Iniciando a API
+- Logo depois, você deve renomear o arquivo `.env.example` para `.env` que se encontra na raiz do projeto. Agora na pasta **/prisma** você deve renomear o arquivo `.env.example` para `.env` e configurar a conexão com seu banco de dados.
+
+```bash
+DATABASE_URL="postgresql://USER:PASS@HOST:PORT/DATABASE?schema=public"
+```
+
+- Iniciar a API:
 ```bash
 yarn start:dev
 ```
 
-E pronto API já estára rodando e pode ser acessado em [`localhost:3333/api`](http://localhost:3333/api)
+Pronto agora API estára rodando e pode ser acessado em [`http://localhost:3333/api`](http://localhost:3333/api)
+
+### **🐳 Com Docker**
+- Subindo o container do projeto no Docker utilizando o comando abaixo:
+```bash
+docker-compose up -d
+```
+- E depois de subir o container, você deve renomear o arquivo `.env.example` para `.env` que se encontra na raiz do projeto. Agora na pasta **/prisma** você deve renomear o arquivo `.env.example` para `.env` e colocar essa string de conexão com banco de dados.
+
+```bash
+DATABASE_URL="postgresql://docker:docker@bethehero-pgsql:5432/betheherodb?schema=public"
+```
+
+Pronto agora API estára rodando com Docker e já pode ser acessado em [`http://localhost:3333/api`](http://localhost:3333/api)
 
 ## 🔑 Como integrar
 https://developers.facebook.com/
 https://console.developers.google.com/
+
 ---
+Feito com 💚 by AlanM Franco
