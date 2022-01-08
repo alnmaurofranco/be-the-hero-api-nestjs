@@ -37,13 +37,15 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🎓 Desafio / Novas funcionalidades
 - Autenticação com JWT ✅
-- Autenticação com Google/Facebook
+- Autenticação com
   - Google ✅
   - Facebook ✅
 - Permissão de Administrador ✅
 - Casos Resolvidos/Finalizados ✅
 
-## 🔑
+## 🎉 Como executar
+
+## 🔑 Como integrar
 https://developers.facebook.com/
 https://console.developers.google.com/
 ---
