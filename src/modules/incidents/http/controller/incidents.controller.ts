@@ -61,6 +61,7 @@ export class IncidentsController {
     return this.getIncident.execute({ incidentId });
   }
 
+  //@Role('admin')
   @Put(':id')
   update(
     @Param('id', new ParseUUIDPipe()) incidentId: string,
@@ -74,7 +75,7 @@ export class IncidentsController {
     });
   }
 
-  @Role('admin')
+  //@Role('admin')
   @Delete(':id')
   @HttpCode(204)
   remove(

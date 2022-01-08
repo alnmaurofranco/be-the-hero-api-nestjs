@@ -38,8 +38,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Autenticação com Google/Facebook
   - Google ✅
   - Facebook ✅
-- Permissão de Administrador ⚙
+- Permissão de Administrador ✅
 - Casos Resolvidos/Fechados ⚙
+  - Endpoint -> PATCH -> /incidents/:id/done
+  - Endpoint -> GET -> /incidents/closed
 
 ## 🔑
 https://developers.facebook.com/

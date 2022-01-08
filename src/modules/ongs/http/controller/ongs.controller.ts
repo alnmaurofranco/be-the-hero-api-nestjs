@@ -1,20 +1,10 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateOngDto } from '../../dtos/create-ong.dto';
-import { UpdateOngDto } from '../../dtos/update-ong.dto';
-import { GetAllOngUseCase } from '../../useCases/get-all-ong/get-all-ong-use-case';
 import { CreateOngUseCase } from '../../useCases/create-ong/create-ong-use-case';
-import { GetCurrentOngById, Public } from '@modules/auth/helpers';
-import { AccessTokenAuthGuard } from '@modules/auth/helpers/guards';
+import { GetAllOngUseCase } from '../../useCases/get-all-ong/get-all-ong-use-case';
 import { ProfileOngUseCase } from '../../useCases/profile-ong/profile-ong-use-case';
+import { GetCurrentOngById, Public } from '@modules/auth/helpers';
+import { Role } from '@modules/auth/helpers/roles.decorator';
 
 @Controller()
 export class OngsController {
@@ -35,25 +25,10 @@ export class OngsController {
     return this.createOng.execute(createOngDto);
   }
 
-  @UseGuards(AccessTokenAuthGuard)
+  @Role('admin')
+  //@UseGuards(AccessTokenAuthGuard)
   @Get('ongs')
-  findAll(@GetCurrentOngById() ong_id: string) {
-    console.log('findAll()', ong_id);
+  findAll() {
     return this.getAllOng.execute();
-  }
-
-  @Get('ongs/:id')
-  findOne(@Param('id') id: string) {
-    return '';
-  }
-
-  @Patch('ongs/:id')
-  update(@Param('id') id: string, @Body() updateOngDto: UpdateOngDto) {
-    return 'this.ongsService.update(+id, updateOngDto);';
-  }
-
-  @Delete('ongs/:id')
-  remove(@Param('id') id: string) {
-    return 'this.ongsService.remove(+id);';
   }
 }
