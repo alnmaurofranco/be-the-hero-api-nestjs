@@ -4,7 +4,7 @@
 
 <p align="center">API feita para estudo/pratica do framework NestJS e Prisma ORM</p>
 
-## ♻ API Be The Hero - Old
+## ♻ API Be The Hero - Antiga
 [LINK DA API ANTIGA](https://github.com/alnmaurofranco/WeekOmniStack11-be-the-hero/blob/master/backend)
 
 ## 🚀 Tecnologias
