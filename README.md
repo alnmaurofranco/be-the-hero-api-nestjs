@@ -77,17 +77,29 @@ Pronto agora API estára rodando e pode ser acessado em [`http://localhost:3333/
 ```bash
 docker-compose up -d
 ```
-- E depois de subir o container, você deve renomear o arquivo `.env.example` para `.env` que se encontra na raiz do projeto. Agora na pasta **/prisma** você deve renomear o arquivo `.env.example` para `.env` e colocar essa string de conexão com banco de dados.
-
-```bash
-DATABASE_URL="postgresql://docker:docker@bethehero-pgsql:5432/betheherodb?schema=public"
-```
 
 Pronto agora API estára rodando com Docker e já pode ser acessado em [`http://localhost:3333/api`](http://localhost:3333/api)
 
-## 🔑 Como integrar
-https://developers.facebook.com/
-https://console.developers.google.com/
+## 🔑 Como gerar a chave no Google e Facebook
+
+## Google
+Primeiramente você deve acessar o site do Google: https://console.developers.google.com, em seguida você deve criar um projeto. Após criar o projeto você vai criar a sua credencial.
+<p>
+<img src=".github/screens/google-1.jpg" alt=""style="margin-left: 5px;"/>
+</p>
+
+Após clicar em "Criar Credenciais", você colocar a opção de "Aplicativo para Web" e colocar um nome para sua Cliente ID. **NÃO MUDE! URIs deve ser igual ao que está na imagem.**
+<p>
+<img src=".github/screens/google-2.jpg" alt=""style="margin-left: 5px;"/>
+</p>
+<p>
+<img src=".github/screens/google-3.jpg" alt=""style="margin-left: 5px;"/>
+</p>
+
+Pronto agora você pode pegar as chaves e colocar no **.env** e autenticação pelo google já estara funcionando normalmente.
+
+## Facebook
+Vamos acessar o site do Facebook https://developers.facebook.com/
 
 ---
 Feito com 💚 by AlanM Franco
