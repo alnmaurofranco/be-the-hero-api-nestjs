@@ -59,7 +59,7 @@ cd be-the-hero-api-nestjs
 ```bash
 yarn install
 ```
-- Logo depois, você deve renomear o arquivo `.env.example` para `.env` que se encontra na raiz do projeto. Agora na pasta **/prisma** você deve renomear o arquivo `.env.example` para `.env` e configurar a conexão com seu banco de dados.
+- Logo depois, você deve renomear o arquivo `.env.example` para `.env` que se encontra na raiz do projeto. Agora na pasta **/prisma** você deve configurar a conexão com seu banco de dados.
 
 ```bash
 DATABASE_URL="postgresql://USER:PASS@HOST:PORT/DATABASE?schema=public"
@@ -85,21 +85,50 @@ Pronto agora API estára rodando com Docker e já pode ser acessado em [`http://
 ## Google
 Primeiramente você deve acessar o site do Google: https://console.developers.google.com, em seguida você deve criar um projeto. Após criar o projeto você vai criar a sua credencial.
 <p>
-<img src=".github/screens/google-1.jpg" alt=""style="margin-left: 5px;"/>
+<img src=".github/screens/google-1.jpg" alt=""/>
 </p>
 
 Após clicar em "Criar Credenciais", você colocar a opção de "Aplicativo para Web" e colocar um nome para sua Cliente ID. **NÃO MUDE! URIs deve ser igual ao que está na imagem.**
 <p>
-<img src=".github/screens/google-2.jpg" alt=""style="margin-left: 5px;"/>
+<img src=".github/screens/google-2.jpg" alt=""/>
 </p>
 <p>
-<img src=".github/screens/google-3.jpg" alt=""style="margin-left: 5px;"/>
+<img src=".github/screens/google-3.jpg" alt=""/>
 </p>
 
 Pronto agora você pode pegar as chaves e colocar no **.env** e autenticação pelo google já estara funcionando normalmente.
 
 ## Facebook
-Vamos acessar o site do Facebook https://developers.facebook.com/
+Você deve acessar o site do Facebook https://developers.facebook.com/, em seguida **clicar em "Criar aplicativo"**
+<p>
+<img src=".github/screens/facebook-1.jpg" alt=""/>
+</p>
+
+**Selecione a opção de "Nenhum" e clique em avançar**
+
+<p>
+<img src=".github/screens/facebook-2.jpg" alt=""/>
+</p>
+
+**Selecione o produto de "Login do Facebook" e clique em "Configurar"**
+
+<p>
+<img src=".github/screens/facebook-3.jpg" alt=""/>
+</p>
+
+*Nesse campo você deve deixar igual ao que está na imagem.*
+
+<p>
+<img src=".github/screens/facebook-4.jpg" alt=""/>
+</p>
+
+Agora vá em "Configurações->Básica" após você deve pegar as *chaves "ID do Aplicativo" e "Chave Secreta"* e colocar no seu **.env**
+
+<p>
+<img src=".github/screens/facebook-5.jpg" alt=""/>
+</p>
+
+Pronto agora a autenticação com facebook estara funcionando.
 
 ---
 Feito com 💚 by AlanM Franco
